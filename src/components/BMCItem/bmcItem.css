@@ -1,0 +1,11 @@
+ul {
+  list-style: disc;
+}
+li::marker {
+  color: var(--primary-color);
+}
+
+li {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}

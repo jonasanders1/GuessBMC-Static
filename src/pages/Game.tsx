@@ -2,9 +2,11 @@ import { useState } from "react";
 import bmcData from "../Data/bmc.json";
 import "../styles/game.css";
 import CustomButton from "../components/customButton/CustomButton";
-import { faCheck, faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import BMCGrid from "../components/BMCGrid/BMCGrid";
+import BMCElement from "../components/BMCElement/BMCElement";
+import BMCItem from "../components/BMCItem/BMCItem";
 
 const Game = () => {
   const [gameState, setGameState] = useState({
@@ -60,37 +62,18 @@ const Game = () => {
           </div>
         </div>
 
-        <div className="bmc-grid">
+        <BMCGrid>
           {bmcElements.map((element) => (
-            <div
+            <BMCElement
               key={element.id}
-              className={`bmc-element ${
-                expandedElements.includes(element.id) ? "expanded" : ""
-              }`}
-              onClick={() => toggleElement(element.id)}
+              title={element.title}
+              isExpanded={expandedElements.includes(element.id)}
+              onToggle={() => toggleElement(element.id)}
             >
-              <div className="bmc-header">
-                <h3>{element.title}:</h3>
-                <div className="expand-icon">
-                  <FontAwesomeIcon
-                    icon={
-                      expandedElements.includes(element.id)
-                        ? faChevronUp
-                        : faChevronDown
-                    }
-                  />
-                </div>
-              </div>
-              <ul className="bmc-content">
-                {bmcData.bmc[element.id as keyof typeof bmcData.bmc].map(
-                  (item, index) => (
-                    <li key={index}>{item}</li>
-                  )
-                )}
-              </ul>
-            </div>
+              <BMCItem bmcData={bmcData} element={element} />
+            </BMCElement>
           ))}
-        </div>
+        </BMCGrid>
 
         <form onSubmit={handleSubmit} className="guess-form">
           <input

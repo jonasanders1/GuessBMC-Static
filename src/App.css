@@ -96,7 +96,9 @@ a:hover {
 input:active,
 input:focus,
 a:active,
-a:focus {
+a:focus,
+select:active,
+select:focus {
   outline-color: var(--primary-color);
   outline-width: 1px;
 }

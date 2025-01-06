@@ -1,0 +1,98 @@
+.create-bmc-page {
+  background-color: var(--neutral-silver);
+  min-height: calc(100vh - var(--navbar-height));
+  padding: var(--spacing-xl) 0;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.create-bmc-container {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+}
+
+/* BMC items list styling */
+.bmc-items-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.bmc-items-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.bmc-items-list::-webkit-scrollbar-track {
+  background: var(--neutral-silver);
+  border-radius: var(--radius-sm);
+}
+
+.bmc-items-list::-webkit-scrollbar-thumb {
+  background: var(--neutral-grey);
+  border-radius: var(--radius-sm);
+}
+
+.bmc-item {
+  background-color: var(--neutral-silver);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  transition: all 0.2s ease;
+}
+
+.bmc-item:hover {
+  background-color: var(--neutral-light-grey);
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 0 var(--spacing-md);
+  }
+
+  .create-bmc-container {
+    padding: var(--spacing-md);
+  }
+}
+.create-bmc-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.create-bmc-page h1 {
+  font-size: var(--font-size-2xl);
+}
+
+.bmc-input-section {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  align-items: center;
+}
+
+.category-select {
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--neutral-light-grey);
+  background-color: var(--neutral-white);
+  color: var(--neutral-dark-grey);
+  font-size: var(--font-size-sm);
+  min-width: 200px;
+}
+
+.category-select {
+  flex: 1;
+}
+.bmc-input-section input,
+.category-select {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--neutral-grey-blue);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+}
+
+.bmc-input-section input {
+  flex: 2;
+}

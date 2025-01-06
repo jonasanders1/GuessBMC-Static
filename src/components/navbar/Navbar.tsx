@@ -112,7 +112,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faHome} />}
-                Home
+                Hjem
               </NavLink>
               <NavLink
                 to="/game"
@@ -128,7 +128,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faTrophy} />}
-                Leaderboard
+                Ledertavle
               </NavLink>
               <NavLink
                 to="/create"
@@ -136,7 +136,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faPlus} />}
-                Create BMC
+                Lag egen BMC
               </NavLink>
               <CustomButton
                 flex={false}
