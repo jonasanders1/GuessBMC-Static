@@ -157,7 +157,7 @@
   font-weight: 600;
 }
 
-.score {
+.leaderboard-score {
   color: var(--neutral-dark-grey);
   font-weight: 500;
 }

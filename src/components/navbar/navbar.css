@@ -40,12 +40,12 @@
 }
 
 .nav-links a.active {
-  color: var(--shade-1);
+  color: var(--primary-color);
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--shade-1);
+  color: var(--primary-color);
 }
 .logout-btn {
   background-color: var(--action-error);
@@ -112,7 +112,6 @@
     transition: bottom 0.3s ease-in-out;
     z-index: 1002;
   }
-
 
   .nav-links.active {
     bottom: 56px;

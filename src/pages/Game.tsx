@@ -2,6 +2,9 @@ import { useState } from "react";
 import bmcData from "../Data/bmc.json";
 import "../styles/game.css";
 import CustomButton from "../components/customButton/CustomButton";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Game = () => {
   const [gameState, setGameState] = useState({
@@ -66,8 +69,10 @@ const Game = () => {
               onClick={() => toggleElement(element.id)}
             >
               <div className="bmc-header">
-                <h3>{element.title}</h3>
-                <span className="expand-icon"></span>
+                <h3>{element.title}:</h3>
+                <div className="expand-icon">
+                <FontAwesomeIcon icon={expandedElements.includes(element.id) ? faChevronUp : faChevronDown} />
+                </div>
               </div>
               <ul className="bmc-content">
                 {bmcData.bmc[element.id as keyof typeof bmcData.bmc].map(

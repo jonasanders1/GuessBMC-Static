@@ -9,7 +9,7 @@ const Landing = () => {
 
   return (
     <div className="landing-page page">
-      
+
       {/* Hero Section */}
       <section className="hero full-width-section">
         <div className="hero-inner">
@@ -72,7 +72,7 @@ const Landing = () => {
                 <div key={rank} className="leaderboard-row">
                   <span className="rank">#{rank}</span>
                   <span className="player">Spiller {rank}</span>
-                  <span className="score">{1000 - (rank * 50)}</span>
+                  <span className="leaderboard-score">{1000 - (rank * 50)}</span>
                 </div>
               ))}
             </div>
