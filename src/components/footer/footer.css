@@ -1,0 +1,10 @@
+/* Footer styles */
+.footer {
+  background-color: var(--neutral-black);
+  color: red;
+  padding: 2rem 0;
+  text-align: center;
+}
+footer p {
+  color: var(--neutral-white);
+}

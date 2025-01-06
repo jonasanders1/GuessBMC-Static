@@ -1,0 +1,90 @@
+/* CSS Variables - Colors */
+:root {
+  /* Typography */
+  --font-family: "Montserrat", serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Neutral Colors */
+  --neutral-black: #262338;
+  --neutral-dark-grey: #4d4d4d;
+  --neutral-grey: #717171;
+  --neutral-light-grey: #b9b9b9;
+  --neutral-grey-blue: #abbed1;
+  --neutral-silver: #f5f7fa;
+  --neutral-white: #ffffff;
+
+  /* Primary Colors */
+  --primary-color: #28cb8b;
+
+  /* Secondary Colors */
+  --secondary-color: #262338;
+
+  /* Info Color */
+  --info-color: #2194f3;
+
+  /* Color Shades */
+  --shade-1: #43a046;
+  --shade-2: #388e3b;
+  --shade-3: #237d31;
+  --shade-4: #1b5e1f;
+  --shade-5: #103e13;
+
+  /* Color Tints */
+  --tint-1: #66bb69;
+  --tint-2: #81c784;
+  --tint-3: #a5d6a7;
+  --tint-4: #c8e6c9;
+  --tint-5: #e8f5e9;
+
+  /* Action Colors */
+  --action-warning: #fbc02d;
+  --action-error: #e53935;
+  --action-success: #2e7d31;
+}
+
+/* Default Text Styles */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary-color);
+}
+p,
+li {
+  color: var(--neutral-dark-grey);
+}
+
+a {
+  color: var(--shade-1);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--shade-2);
+}
+
+/* Default text selection color */
+::selection {
+  background: var(--tint-4);
+  color: var(--secondary-color);
+}

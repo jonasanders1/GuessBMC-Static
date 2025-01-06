@@ -1,0 +1,18 @@
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--neutral-white);
+  padding: 0.5rem 1rem;
+  opacity: 0.9;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.custom-button:hover,
+.custom-button:active,
+.custom-button:focus {
+  opacity: 1;
+}
