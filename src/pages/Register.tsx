@@ -81,12 +81,18 @@ const Register: React.FC<RegisterProps> = ({ onRegister }) => {
       </div>
 
       <Divider />
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <CustomButton
-          text="Continue with Linkedin"
-          icon={<FontAwesomeIcon icon={faLinkedin} size="lg" />}
-          onClick={() => {}}
-        />
+      <div className="linkedin-button">
+        <div className="linkedin-button">
+          <CustomButton
+            variant="contained"
+            size="medium"
+            buttonColor="var(--neutral-dark-grey)"
+            hoverColor="var(--primary-color)"
+            text="Continue with Linkedin"
+            icon={<FontAwesomeIcon icon={faLinkedin} size="lg" />}
+            onClick={() => {}}
+          />
+        </div>
       </div>
     </div>
   );

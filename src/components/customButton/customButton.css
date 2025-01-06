@@ -3,16 +3,87 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: var(--neutral-white);
   padding: 0.5rem 1rem;
-  opacity: 0.9;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  /* border: 2px solid transparent; */
+  transition: all 0.3s ease;
 }
 
-.custom-button:hover,
-.custom-button:active,
-.custom-button:focus {
+/* Size variants */
+.custom-button.small {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.custom-button.large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+/* Button variants */
+.custom-button.contained {
+  opacity: 0.9;
+}
+
+.custom-button.outlined {
+  background-color: transparent;
+}
+
+.custom-button.text {
+  background-color: transparent;
+  padding: 0.5rem;
+}
+
+/* Hover states */
+.custom-button.contained:hover:not(:disabled) {
   opacity: 1;
+}
+
+.custom-button.outlined:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--hover-color) 10%, transparent);
+}
+
+.custom-button.text:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--hover-color) 10%, transparent);
+}
+
+/* Disabled state */
+.custom-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-button.contained:hover {
+  background-color: var(--hover-color) !important;
+}
+
+.custom-button.outlined:hover {
+  background-color: rgba(var(--hover-color), 0.1) !important;
+  border-color: var(--hover-color) !important;
+  color: var(--hover-color) !important;
+}
+
+.custom-button.text:hover {
+  background-color: rgba(var(--hover-color), 0.1) !important;
+  color: var(--hover-color) !important;
 }

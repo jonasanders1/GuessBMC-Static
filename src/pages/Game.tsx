@@ -2,7 +2,7 @@ import { useState } from "react";
 import bmcData from "../Data/bmc.json";
 import "../styles/game.css";
 import CustomButton from "../components/customButton/CustomButton";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -11,7 +11,7 @@ const Game = () => {
     userInput: "",
     score: 0,
     currentQuestion: 1,
-    totalQuestions: 10
+    totalQuestions: 10,
   });
 
   // Add state for tracking which elements are expanded
@@ -19,9 +19,9 @@ const Game = () => {
 
   // Toggle expansion of an element
   const toggleElement = (elementId: string) => {
-    setExpandedElements(prev => 
-      prev.includes(elementId) 
-        ? prev.filter(id => id !== elementId)
+    setExpandedElements((prev) =>
+      prev.includes(elementId)
+        ? prev.filter((id) => id !== elementId)
         : [...prev, elementId]
     );
   };
@@ -52,7 +52,6 @@ const Game = () => {
 
   return (
     <div className="game-page page">
-      <h2>Guess the Company</h2>
       <div className="game-container">
         <div className="score-container">
           <div className="score">Score: {gameState.score}</div>
@@ -63,15 +62,23 @@ const Game = () => {
 
         <div className="bmc-grid">
           {bmcElements.map((element) => (
-            <div 
-              key={element.id} 
-              className={`bmc-element ${expandedElements.includes(element.id) ? 'expanded' : ''}`}
+            <div
+              key={element.id}
+              className={`bmc-element ${
+                expandedElements.includes(element.id) ? "expanded" : ""
+              }`}
               onClick={() => toggleElement(element.id)}
             >
               <div className="bmc-header">
                 <h3>{element.title}:</h3>
                 <div className="expand-icon">
-                <FontAwesomeIcon icon={expandedElements.includes(element.id) ? faChevronUp : faChevronDown} />
+                  <FontAwesomeIcon
+                    icon={
+                      expandedElements.includes(element.id)
+                        ? faChevronUp
+                        : faChevronDown
+                    }
+                  />
                 </div>
               </div>
               <ul className="bmc-content">
@@ -97,6 +104,7 @@ const Game = () => {
           />
           <CustomButton
             text="Submit Guess"
+            icon={<FontAwesomeIcon icon={faCheck} />}
             onClick={() => handleSubmit}
             flex={false}
           />

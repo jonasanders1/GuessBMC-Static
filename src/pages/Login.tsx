@@ -28,7 +28,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
   return (
     <div className="page login-page">
-      <h2>Log In</h2>
+      <h2>Log In to Guess BMC</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
@@ -66,8 +66,12 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         Don't have an account? <NavLink to="/register">Sign Up</NavLink>
       </div>
       <Divider />
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="linkedin-button">
         <CustomButton
+          variant="contained"
+          size="medium"
+          buttonColor="var(--neutral-dark-grey)"
+          hoverColor="var(--primary-color)"
           text="Continue with Linkedin"
           icon={<FontAwesomeIcon icon={faLinkedin} size="lg" />}
           onClick={() => {}}

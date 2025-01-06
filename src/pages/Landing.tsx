@@ -4,12 +4,12 @@ import heroImage from "../assets/hero.png";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faGamepad } from "@fortawesome/free-solid-svg-icons";
+import { navigateAndScroll } from "../utils/navigation";
 const Landing = () => {
   const navigate = useNavigate();
 
   return (
     <div className="landing-page page">
-
       {/* Hero Section */}
       <section className="hero full-width-section">
         <div className="hero-inner">
@@ -21,7 +21,10 @@ const Landing = () => {
             <p>Et spill der du skal gjette selskap basert en gitt BMC.</p>
             <CustomButton
               text="Spill nå"
-              onClick={() => navigate("/game")}
+              variant="contained"
+              size="large"
+              buttonColor="var(--primary-color)"
+              onClick={() => navigateAndScroll(navigate, "/game")}
               flex={false}
               icon={<FontAwesomeIcon icon={faArrowRight} />}
             />
@@ -61,7 +64,7 @@ const Landing = () => {
         <div className="leaderboard-inner">
           <h2 className="section-title">Toppliste</h2>
           <div className="leaderboard-content">
-            <div className="leaderboard-table">
+            <div className="leaderboard-table-static">
               <div className="leaderboard-header">
                 <span>Rank</span>
                 <span>Spiller</span>
@@ -72,7 +75,7 @@ const Landing = () => {
                 <div key={rank} className="leaderboard-row">
                   <span className="rank">#{rank}</span>
                   <span className="player">Spiller {rank}</span>
-                  <span className="leaderboard-score">{1000 - (rank * 50)}</span>
+                  <span className="leaderboard-score">{1000 - rank * 50}</span>
                 </div>
               ))}
             </div>
@@ -80,10 +83,11 @@ const Landing = () => {
               <p>Vil du være med på topplisten?</p>
               <CustomButton
                 text="Guess BMC"
-                onClick={() => navigate("/game")}
+                onClick={() => navigateAndScroll(navigate, "/game")}
                 flex={false}
                 icon={<FontAwesomeIcon icon={faGamepad} />}
               />
+            
             </div>
           </div>
         </div>

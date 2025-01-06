@@ -12,6 +12,8 @@ import {
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "../customButton/CustomButton";
+import logo from "../../assets/logo.png";
+import { navigateAndScroll } from "../../utils/navigation";
 
 interface NavbarProps {
   isAuthenticated: boolean;
@@ -22,18 +24,30 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY >= 80);
+    };
+
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleNavLinkClick = (path: string) => {
+    navigateAndScroll(navigate, path);
+    setIsMenuOpen(false);
+  };
 
   const handleLogout = () => {
     onLogout();
@@ -48,13 +62,23 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
   return (
     <>
       <nav
-        className="navbar"
+        className={`navbar ${
+          isScrolled && windowWidth >= 768 ? "scrolled" : ""
+        }`}
         style={{
           borderRadius: !isMenuOpen && windowWidth < 768 ? "1rem 1rem 0 0" : "",
         }}
       >
-        <div className="nav-container" >
-          <div className="brand">
+        <div className="nav-container">
+          <button className="brand" onClick={() => navigate("/")}>
+            <img
+              src={logo}
+              alt="Guess BMC"
+              width={windowWidth < 768 ? 30 : 50}
+              style={{
+                display: isMenuOpen && windowWidth < 768 ? "none" : "block",
+              }}
+            />
             <h1
               style={{
                 display: isMenuOpen && windowWidth < 768 ? "none" : "block",
@@ -62,7 +86,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
             >
               Guess BMC
             </h1>
-          </div>
+          </button>
 
           <button className="menu-btn" onClick={toggleMenu}>
             {isMenuOpen ? (
@@ -72,7 +96,11 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
                 color="var(--neutral-100)"
               />
             ) : (
-              <FontAwesomeIcon icon={faBars} size="lg" color="var(--neutral-100)" />
+              <FontAwesomeIcon
+                icon={faBars}
+                size="lg"
+                color="var(--neutral-100)"
+              />
             )}
           </button>
 
@@ -80,7 +108,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
             <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
               <NavLink
                 to="/"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavLinkClick("/")}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faHome} />}
@@ -88,7 +116,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
               </NavLink>
               <NavLink
                 to="/game"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavLinkClick("/game")}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faGamepad} />}
@@ -96,7 +124,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
               </NavLink>
               <NavLink
                 to="/leaderboard"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavLinkClick("/leaderboard")}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faTrophy} />}
@@ -104,7 +132,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
               </NavLink>
               <NavLink
                 to="/create"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavLinkClick("/create")}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faPlus} />}
@@ -113,8 +141,11 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
               <CustomButton
                 flex={false}
                 text="Logout"
+                variant="contained"
+                size="small"
                 onClick={handleLogout}
                 buttonColor="var(--action-error)"
+                hoverColor="red"
                 icon={<FontAwesomeIcon icon={faArrowRightToBracket} />}
               />
             </div>
@@ -123,7 +154,9 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
               <CustomButton
                 flex={false}
                 text="Login"
-                onClick={() => navigate("/login")}
+                variant="contained"
+                size="small"
+                onClick={() => navigateAndScroll(navigate, "/login")}
                 icon={<FontAwesomeIcon icon={faArrowRightToBracket} />}
               />
             </div>
@@ -131,7 +164,10 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
         </div>
       </nav>
       {windowWidth <= 768 && (
-        <div className={`nav-overlay ${isMenuOpen ? "active" : ""}`} onClick={toggleMenu} />
+        <div
+          className={`nav-overlay ${isMenuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        />
       )}
     </>
   );

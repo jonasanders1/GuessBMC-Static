@@ -23,7 +23,7 @@
   --shadow-3: 0 6px 8px rgba(171, 190, 209, 0.3); /* 30% */
   --shadow-4: 0 8px 16px rgba(171, 190, 209, 0.4); /* 40% */
   --shadow-5: 0 16px 24px rgba(171, 190, 209, 0.3); /* 30% */
-
+  --top-shadow: 0 -2px 4px rgba(171, 190, 209, 0.3); /* 30% */
   /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -79,7 +79,6 @@ h6 {
   color: var(--secondary-color);
 }
 
-
 p,
 li {
   color: var(--neutral-dark-grey);
@@ -92,6 +91,19 @@ a {
 
 a:hover {
   color: var(--shade-2);
+}
+
+input:active,
+input:focus,
+a:active,
+a:focus {
+  outline-color: var(--primary-color);
+  outline-width: 1px;
+}
+button:active,
+button:focus {
+  outline-color: var(--secondary-color);
+  outline-width: 1px;
 }
 
 /* Default text selection color */

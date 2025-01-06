@@ -8,6 +8,10 @@ interface CustomButtonProps {
   buttonColor?: string;
   hoverColor?: string;
   flex?: boolean;
+  variant?: "contained" | "outlined" | "text";
+  size?: "small" | "medium" | "large";
+  disabled?: boolean;
+  loading?: boolean;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -15,22 +19,40 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   onClick,
   icon,
   iconPosition = "right",
-  buttonColor = "var(--shade-1)",
+  buttonColor = "var(--primary-color)",
+  hoverColor,
   flex = true,
+  variant = "contained",
+  size = "medium",
+  disabled = false,
+  loading = false,
 }) => {
   return (
     <button
-      className="custom-button"
+      className={`custom-button ${variant} ${size}`}
       onClick={onClick}
-      style={{
-        backgroundColor: buttonColor,
-        flexGrow: flex ? 1 : 0,
-        width: flex ? "100%" : "fit-content",
-      }}
+      disabled={disabled || loading}
+      style={
+        {
+          backgroundColor:
+            variant === "contained" ? buttonColor : "transparent",
+          borderColor: variant !== "text" ? buttonColor : "transparent",
+          color: variant === "contained" ? "var(--neutral-white)" : buttonColor,
+          flexGrow: flex ? 1 : 0,
+          width: flex ? "100%" : "fit-content",
+          "--hover-color": hoverColor || buttonColor,
+        } as React.CSSProperties
+      }
     >
-      {icon && iconPosition === "left" && icon}
-      {text}
-      {icon && iconPosition === "right" && icon}
+      {loading ? (
+        <span className="loading-spinner" />
+      ) : (
+        <>
+          {icon && iconPosition === "left" && icon}
+          {text}
+          {icon && iconPosition === "right" && icon}
+        </>
+      )}
     </button>
   );
 };

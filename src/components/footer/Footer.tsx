@@ -5,17 +5,21 @@ import {
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { NavLink, useNavigate } from "react-router-dom";
+import { navigateAndScroll } from "../../utils/navigation";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-grid">
           <div className="footer-section">
-            <h3>Guess the BMC</h3>
+            <h3>Guess BMC</h3>
             <p>
-              Test your knowledge of Business Model Canvas components in this
-              interactive game.
+              Test din kunnskap om Business Model Canvas komponenter i dette
+              interaktive spillet.
             </p>
           </div>
 
@@ -23,16 +27,38 @@ const Footer = () => {
             <h4>Lenker</h4>
             <ul>
               <li>
-                <a href="/">Home</a>
+                <NavLink
+                  to="/"
+                  onClick={() => navigateAndScroll(navigate, "/")}
+                >
+                  Home
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/game"
+                  onClick={() => navigateAndScroll(navigate, "/game")}
+                >
+                  Play Guess BMC
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/create"
+                  onClick={() => navigateAndScroll(navigate, "/create")}
+                >
+                  Create your own BMC
+                </NavLink>
               </li>
               <li>
-                <a href="/how-to-play">How to Play</a>
-              </li>
-              <li>
-                <a href="/leaderboard">Leaderboard</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
+                <NavLink
+                  to="/leaderboard"
+                  onClick={() => navigateAndScroll(navigate, "/leaderboard")}
+                >
+                  Leaderboard
+                </NavLink>
               </li>
             </ul>
           </div>

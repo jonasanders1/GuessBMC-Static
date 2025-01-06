@@ -1,21 +1,14 @@
 .game-page {
+  padding: var(--spacing-md);
   min-height: calc(100vh - var(--navbar-height));
-  padding: var(--spacing-xl);
   background-color: var(--neutral-white);
-}
-
-.game-page h2 {
-  text-align: center;
-  margin-bottom: var(--spacing-xl);
-  font-size: var(--font-size-3xl);
-  color: var(--secondary-color);
-  font-weight: 600;
+  margin-top: 2rem !important;
 }
 
 .game-container {
+  padding: var(--spacing-md);
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-xl);
   background-color: var(--neutral-silver);
   border-radius: var(--radius-md);
 }
@@ -24,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
   padding: var(--spacing-md) var(--spacing-lg);
   background-color: var(--neutral-white);
   border-radius: var(--radius-sm);
@@ -77,7 +70,7 @@
 
 .guess-input {
   flex: 1;
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm);
   border: 1px solid var(--neutral-grey-blue);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-base);
@@ -257,23 +250,22 @@
 }
 
 .bmc-content {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
   padding: var(--spacing-md);
+  padding: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
 }
 
 .bmc-content li {
-  list-style: none;
-  background: linear-gradient(to right, var(--primary-color), var(--shade-1));
-  color: var(--neutral-white);
-  padding: 0.3rem 1rem;
-  text-align: center;
-  border-radius: var(--radius-full);
+  color: var(--neutral-black);
   font-size: var(--font-size-sm);
-  margin: 0;
-  width: fit-content;
+}
+.bmc-content li::before {
+  content: "•";
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+  margin-right: var(--spacing-xs);
 }
 
 /* Mobile styles */
