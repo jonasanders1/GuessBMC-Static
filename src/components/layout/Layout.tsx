@@ -14,9 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ isAuthenticated, onLogout }) => {
       <Navbar isAuthenticated={isAuthenticated} onLogout={onLogout} />
 
       <main className="main">
-        <div className="main-content">
         <Outlet />
-        </div>
       </main>
 
       <Footer />

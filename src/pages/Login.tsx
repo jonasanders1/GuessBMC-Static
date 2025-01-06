@@ -5,6 +5,7 @@ import Divider from "../components/form/Divider";
 import CustomButton from "../components/customButton/CustomButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 interface Credentials {
   email: string;
   password: string;
@@ -26,7 +27,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="login-page">
+    <div className="page login-page">
       <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

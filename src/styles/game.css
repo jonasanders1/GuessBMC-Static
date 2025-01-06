@@ -1,0 +1,313 @@
+.game-page {
+  min-height: calc(100vh - var(--navbar-height));
+  padding: var(--spacing-xl);
+  background-color: var(--neutral-white);
+}
+
+.game-page h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--font-size-3xl);
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.game-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  background-color: var(--neutral-silver);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--neutral-white);
+  border-radius: var(--radius-sm);
+}
+
+.score {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.progress {
+  font-size: var(--font-size-base);
+  color: var(--neutral-dark-grey);
+}
+
+.bmc-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "partners partners activities activities value value relationships relationships segments segments"
+    "partners partners resources resources value value channels channels segments segments"
+    "cost cost cost cost cost revenue revenue revenue revenue revenue";
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.bmc-element {
+  background-color: var(--neutral-white);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--neutral-grey-blue);
+}
+
+.bmc-element:hover {
+  transform: none;
+}
+
+.bmc-element.active {
+  background-color: var(--tint-4);
+  border: 2px solid var(--info-color);
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.option-button {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.option-button:hover {
+  background-color: #e3f2fd;
+}
+
+.question-container {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.current-question {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #2196f3;
+  margin: 1rem 0;
+}
+
+.guess-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.guess-input {
+  flex: 1;
+  padding: var(--spacing-md);
+  border: 1px solid var(--neutral-grey-blue);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+}
+
+.submit-button {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--primary-color);
+  color: var(--neutral-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: var(--shade-1);
+}
+
+.bmc-element:nth-child(1) {
+  grid-area: partners;
+} /* Key Partners */
+.bmc-element:nth-child(2) {
+  grid-area: activities;
+} /* Key Activities */
+.bmc-element:nth-child(3) {
+  grid-area: resources;
+} /* Key Resources */
+.bmc-element:nth-child(4) {
+  grid-area: value;
+} /* Value Propositions */
+.bmc-element:nth-child(5) {
+  grid-area: relationships;
+} /* Customer Relationships */
+.bmc-element:nth-child(6) {
+  grid-area: channels;
+} /* Channels */
+.bmc-element:nth-child(7) {
+  grid-area: segments;
+} /* Customer Segments */
+.bmc-element:nth-child(8) {
+  grid-area: cost;
+} /* Cost Structure */
+.bmc-element:nth-child(9) {
+  grid-area: revenue;
+} /* Revenue Streams */
+
+.bmc-element h3 {
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  color: var(--info-color);
+}
+
+.bmc-element ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.bmc-element li {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.4;
+  color: var(--neutral-dark-grey);
+}
+
+/* Mobile layout */
+@media screen and (max-width: 768px) {
+  .bmc-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .bmc-element {
+    /* Reset any grid-area assignments */
+    grid-area: unset !important;
+  }
+
+  /* Make the container full width on mobile */
+  .game-container {
+    padding: var(--spacing-md);
+    margin: 0;
+    border-radius: 0;
+  }
+
+  /* Adjust the game page padding */
+  .game-page {
+    padding: 0;
+  }
+
+  /* Make form elements stack on mobile */
+  .guess-form {
+    flex-direction: column;
+  }
+
+  .guess-input {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* Optional: Add some visual grouping */
+  .bmc-element {
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* Make the headings more prominent on mobile */
+  .bmc-element h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Adjust score container for mobile */
+  .score-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+
+  .bmc-element {
+    cursor: pointer;
+  }
+
+  .bmc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    position: relative;
+  }
+
+  .expand-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+  }
+
+  .expand-icon::before,
+  .expand-icon::after {
+    content: '';
+    position: absolute;
+    background-color: var(--primary-color);
+    transition: transform 0.3s ease;
+  }
+
+  .expand-icon::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  .expand-icon::after {
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  .bmc-element.expanded .expand-icon::after {
+    transform: translateX(-50%) rotate(90deg);
+  }
+
+  .bmc-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 var(--spacing-md);
+  }
+
+  .bmc-element.expanded .bmc-content {
+    max-height: 500px; /* Adjust based on your content */
+    padding: var(--spacing-md);
+  }
+
+  .bmc-element h3 {
+    margin: 0;
+  }
+
+  /* Improve visual hierarchy */
+  .bmc-element {
+    background-color: var(--neutral-white);
+    border: 1px solid var(--neutral-grey-blue);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-sm);
+    overflow: hidden;
+  }
+
+  .bmc-element.expanded {
+    background-color: var(--neutral-silver);
+  }
+}

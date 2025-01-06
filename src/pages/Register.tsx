@@ -29,7 +29,7 @@ const Register: React.FC<RegisterProps> = ({ onRegister }) => {
   };
 
   return (
-    <div className="register-page">
+    <div className="register-page page">
       <h2>Create an account</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

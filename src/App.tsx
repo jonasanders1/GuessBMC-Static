@@ -13,7 +13,6 @@ import Register from "./pages/Register";
 import Game from "./pages/Game";
 import Leaderboard from "./pages/Leaderboard";
 import CreateBMC from "./pages/CreateBMC";
-import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import { handleLogin, handleRegister, handleLogout } from "./api";
 import "./App.css";
@@ -75,10 +74,6 @@ const createRouter = (isAuthenticated: boolean) =>
             {
               path: "/create",
               element: <CreateBMC />,
-            },
-            {
-              path: "/profile",
-              element: <Profile />,
             },
           ],
         },

@@ -1,5 +1,6 @@
 /* CSS Variables - Colors */
 :root {
+  --navbar-height: 60px;
   /* Typography */
   --font-family: "Montserrat", serif;
   --font-size-sm: 0.875rem;
@@ -7,6 +8,7 @@
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2.784rem;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -14,6 +16,13 @@
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
+
+  /* Shadows */
+  --shadow-1: 0 2px 4px rgba(171, 190, 209, 0.6); /* 60% */
+  --shadow-2: 0 4px 6px rgba(171, 190, 209, 0.4); /* 40% */
+  --shadow-3: 0 6px 8px rgba(171, 190, 209, 0.3); /* 30% */
+  --shadow-4: 0 8px 16px rgba(171, 190, 209, 0.4); /* 40% */
+  --shadow-5: 0 16px 24px rgba(171, 190, 209, 0.3); /* 30% */
 
   /* Border Radius */
   --radius-sm: 0.25rem;
@@ -69,6 +78,8 @@ h5,
 h6 {
   color: var(--secondary-color);
 }
+
+
 p,
 li {
   color: var(--neutral-dark-grey);
@@ -87,4 +98,25 @@ a:hover {
 ::selection {
   background: var(--tint-4);
   color: var(--secondary-color);
+}
+
+.page {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.landing-page {
+  margin-top: 0;
+}
+
+/* Add these new utility classes */
+.full-width-section {
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }

@@ -7,7 +7,7 @@ const CreateBMC = () => {
   };
 
   return (
-    <div className="create-bmc-page">
+    <div className="create-bmc-page page">
       <h2>Create Your BMC</h2>
       <form onSubmit={handleSubmit}>
         <button type="submit">Create BMC</button>

@@ -8,8 +8,8 @@ import {
   faGamepad,
   faTrophy,
   faPlus,
-  faUser,
   faHome,
+  faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "../customButton/CustomButton";
 
@@ -37,7 +37,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
 
   const handleLogout = () => {
     onLogout();
-    navigate("/login");
+    navigate("/");
     setIsMenuOpen(false);
   };
 
@@ -46,86 +46,94 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
   };
 
   return (
-    <nav
-      className="navbar"
-      style={{
-        borderRadius: !isMenuOpen && windowWidth < 768 ? "1rem 1rem 0 0" : "",
-      }}
-    >
-      <div className="brand">
-        <h1
-          style={{
-            display: isMenuOpen && windowWidth < 768 ? "none" : "block",
-          }}
-        >
-          Guess BMC
-        </h1>
-      </div>
+    <>
+      <nav
+        className="navbar"
+        style={{
+          borderRadius: !isMenuOpen && windowWidth < 768 ? "1rem 1rem 0 0" : "",
+        }}
+      >
+        <div className="nav-container" >
+          <div className="brand">
+            <h1
+              style={{
+                display: isMenuOpen && windowWidth < 768 ? "none" : "block",
+              }}
+            >
+              Guess BMC
+            </h1>
+          </div>
 
-      <button className="menu-btn" onClick={toggleMenu}>
-        {isMenuOpen ? (
-          <FontAwesomeIcon
-            icon={faXmark}
-            size="xl"
-            color="var(--neutral-100)"
-          />
-        ) : (
-          <FontAwesomeIcon icon={faBars} size="lg" color="var(--neutral-100)" />
-        )}
-      </button>
-
-      {isAuthenticated ? (
-        <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-          <NavLink
-            to="/"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            {windowWidth <= 768 && <FontAwesomeIcon icon={faHome} />}
-            Home
-          </NavLink>
-          <NavLink
-            to="/game"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            {windowWidth <= 768 && <FontAwesomeIcon icon={faGamepad} />}
-            Guess BMC
-          </NavLink>
-          <NavLink
-            to="/leaderboard"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            {windowWidth <= 768 && <FontAwesomeIcon icon={faTrophy} />}
-            Leaderboard
-          </NavLink>
-          <NavLink
-            to="/create"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            {windowWidth <= 768 && <FontAwesomeIcon icon={faPlus} />}
-            Create BMC
-          </NavLink>
-          <NavLink
-            to="/profile"
-            onClick={() => setIsMenuOpen(false)}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            {windowWidth <= 768 && <FontAwesomeIcon icon={faUser} />}
-            Profile
-          </NavLink>
-          <button className="logout-btn" onClick={handleLogout}>
-            Logout
+          <button className="menu-btn" onClick={toggleMenu}>
+            {isMenuOpen ? (
+              <FontAwesomeIcon
+                icon={faXmark}
+                size="xl"
+                color="var(--neutral-100)"
+              />
+            ) : (
+              <FontAwesomeIcon icon={faBars} size="lg" color="var(--neutral-100)" />
+            )}
           </button>
+
+          {isAuthenticated ? (
+            <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
+              <NavLink
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {windowWidth <= 768 && <FontAwesomeIcon icon={faHome} />}
+                Home
+              </NavLink>
+              <NavLink
+                to="/game"
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {windowWidth <= 768 && <FontAwesomeIcon icon={faGamepad} />}
+                Guess BMC
+              </NavLink>
+              <NavLink
+                to="/leaderboard"
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {windowWidth <= 768 && <FontAwesomeIcon icon={faTrophy} />}
+                Leaderboard
+              </NavLink>
+              <NavLink
+                to="/create"
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {windowWidth <= 768 && <FontAwesomeIcon icon={faPlus} />}
+                Create BMC
+              </NavLink>
+              <CustomButton
+                flex={false}
+                text="Logout"
+                onClick={handleLogout}
+                buttonColor="var(--action-error)"
+                icon={<FontAwesomeIcon icon={faArrowRightToBracket} />}
+              />
+            </div>
+          ) : (
+            <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
+              <CustomButton
+                flex={false}
+                text="Login"
+                onClick={() => navigate("/login")}
+                icon={<FontAwesomeIcon icon={faArrowRightToBracket} />}
+              />
+            </div>
+          )}
         </div>
-      ) : (
-        <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-          <CustomButton text="Login"  onClick={() => navigate("/login")} />
-        </div>
+      </nav>
+      {windowWidth <= 768 && (
+        <div className={`nav-overlay ${isMenuOpen ? "active" : ""}`} onClick={toggleMenu} />
       )}
-    </nav>
+    </>
   );
 };
 

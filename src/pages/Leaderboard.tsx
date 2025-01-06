@@ -15,7 +15,7 @@ const Leaderboard = () => {
   ]);
 
   return (
-    <div className="leaderboard-page">
+    <div className="leaderboard-page page">
       <h2>Leaderboard</h2>
       <div className="leaderboard-container">
         {leaderboardData.map((entry, index) => (

@@ -8,12 +8,7 @@
 /* Main content area */
 .main {
   flex: 1;
-  margin-top: 56px;
-  border: 1px solid red;
-}
-.main-content {
-  max-width: 1600px;
-  margin: 0 auto;
+  margin-top: var(--navbar-height);
 }
 
 /* Responsive adjustments */
@@ -21,8 +16,7 @@
   .app-container {
     margin-bottom: 60px;
   }
-  .main-content {
+  .main {
     margin-top: 0;
-    padding: 1rem;
   }
 }
