@@ -5,8 +5,6 @@
   margin-top: 0rem !important;
 }
 
-
-
 .create-bmc-container {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-2);
@@ -19,11 +17,8 @@
 }
 .bmc-item-interactive:hover {
   cursor: pointer;
-  text-decoration: line-through;
+  background-color: var(--action-error) !important;
 }
-
-
-
 
 .bmc-input-section {
   display: flex;

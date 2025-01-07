@@ -28,7 +28,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY >= 80);
+      setIsScrolled(window.scrollY >= 30);
     };
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -118,7 +118,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faGamepad} />}
-                Guess BMC
+                Spill
               </NavLink>
               <NavLink
                 to="/leaderboard"
@@ -134,7 +134,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faPlus} />}
-                Lag egen BMC
+                Lag BMC
               </NavLink>
               <CustomButton
                 flex={false}

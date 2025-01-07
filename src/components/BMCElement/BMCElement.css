@@ -11,8 +11,12 @@
   align-items: center;
 }
 
+.bmc-header h3 {
+  font-weight: 600;
+}
+
 .bmc-content {
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm) 0rem;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);

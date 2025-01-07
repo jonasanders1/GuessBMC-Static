@@ -5,6 +5,8 @@ import BMCGrid from "../components/BMCGrid/BMCGrid";
 import BMCElement from "../components/BMCElement/BMCElement";
 import CustomButton from "../components/customButton/CustomButton";
 import PageTitle from "../components/PageTitle/PageTitle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const CreateBMC = () => {
   // Add state for tracking which elements are expanded
@@ -127,6 +129,7 @@ const CreateBMC = () => {
                       onClick={() => handleRemoveItem(element.id, index)}
                     >
                       {item}
+                      <FontAwesomeIcon icon={faXmark} />
                     </li>
                   ))}
                 </ul>

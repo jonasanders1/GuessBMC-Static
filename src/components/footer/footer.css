@@ -10,6 +10,20 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.logo {
+  background-image: url("../../assets/logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 25px;
+  aspect-ratio: 2/1;
+}
 
 .footer-grid {
   display: grid;
@@ -20,7 +34,6 @@
 
 .footer-section h3 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
   color: var(--neutral-white);
 }
 
@@ -76,6 +89,9 @@
   }
 
   .social-links {
+    justify-content: center;
+  }
+  .footer-logo {
     justify-content: center;
   }
 }

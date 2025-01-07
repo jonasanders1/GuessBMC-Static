@@ -1,11 +1,21 @@
 ul {
-  list-style: disc;
-}
-li::marker {
-  color: var(--primary-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
 }
 
 li {
   word-wrap: break-word;
   overflow-wrap: break-word;
+  background-color: var(--primary-color);
+  color: var(--neutral-white) !important;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-full);
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
 }

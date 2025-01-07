@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./footer.css";
+
 import {
   faGithub,
   faLinkedin,
@@ -16,7 +17,10 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-grid">
           <div className="footer-section">
-            <h3>Guess BMC</h3>
+            <div className="footer-logo">
+              <div className="logo" />
+              <h3>Guess BMC</h3>
+            </div>
             <p>
               Test din kunnskap om Business Model Canvas komponenter i dette
               interaktive spillet.

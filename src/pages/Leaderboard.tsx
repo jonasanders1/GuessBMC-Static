@@ -67,7 +67,7 @@ const Leaderboard = () => {
     <div className="leaderboard-page page">
       <div className="content-wrapper">
         <PageTitle
-          title="Leaderboard"
+          title="Toppliste"
           description="Se hvem som har høyest score på BMC Quiz."
         />
 
