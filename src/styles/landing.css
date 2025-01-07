@@ -1,5 +1,6 @@
 .landing-page {
   background-color: var(--neutral-silver);
+  padding: 0rem !important;
 }
 
 .hero {
@@ -10,7 +11,7 @@
 .hero-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 1rem;
+  padding: 4rem 0rem;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -42,14 +43,14 @@
 
 /** Features Section **/
 .features {
-  padding: 3rem 0;
+  /* padding: 3rem 0; */
   background-color: var(--neutral-white);
 }
 
 .features-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 4rem 0rem;
 }
 
 .section-title {
@@ -181,11 +182,12 @@
   /** Hero Section **/
   .hero-inner {
     padding: 2rem 1rem;
-    justify-content: center;
+
+    flex-direction: column;
   }
 
   .hero-content {
-    gap: 0.5rem;
+    gap: 1rem;
     align-items: center;
     text-align: center;
   }
@@ -198,7 +200,7 @@
 
   .hero-image {
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
   }
 
   /** Features Section **/
@@ -220,6 +222,12 @@
   .leaderboard-row {
     grid-template-columns: 0.3fr 1.2fr 0.8fr;
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-image {
+    width: 100%;
   }
 }
 
@@ -262,5 +270,12 @@
   .leaderboard-row {
     font-size: 0.75rem;
     padding: 0.25rem;
+  }
+}
+
+@media (max-width: 1224px) {
+  .hero-inner,
+  .features-inner {
+    padding: 4rem 1rem;
   }
 }

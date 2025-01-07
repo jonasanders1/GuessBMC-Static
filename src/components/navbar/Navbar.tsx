@@ -30,11 +30,9 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY >= 80);
     };
-
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
 

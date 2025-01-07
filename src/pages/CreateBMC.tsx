@@ -4,6 +4,7 @@ import "../styles/createBMC.css";
 import BMCGrid from "../components/BMCGrid/BMCGrid";
 import BMCElement from "../components/BMCElement/BMCElement";
 import CustomButton from "../components/customButton/CustomButton";
+import PageTitle from "../components/PageTitle/PageTitle";
 
 const CreateBMC = () => {
   // Add state for tracking which elements are expanded
@@ -46,23 +47,13 @@ const CreateBMC = () => {
     }
   };
 
-  // // Remove item from a section
-  // const removeItem = (sectionId: string, index: number) => {
-  //   setBmcItems((prev) => ({
-  //     ...prev,
-  //     [sectionId]: prev[sectionId].filter((_, i) => i !== index),
-  //   }));
-  // };
-
-  // // Update item content
-  // const updateItem = (sectionId: string, index: number, value: string) => {
-  //   setBmcItems((prev) => ({
-  //     ...prev,
-  //     [sectionId]: prev[sectionId].map((item, i) =>
-  //       i === index ? value : item
-  //     ),
-  //   }));
-  // };
+  // Add this new function to handle item removal
+  const handleRemoveItem = (categoryId: string, index: number) => {
+    setBmcItems((prev) => ({
+      ...prev,
+      [categoryId]: prev[categoryId].filter((_, i) => i !== index),
+    }));
+  };
 
   const bmcElements = [
     { title: "Key Partners", id: "key_partners" },
@@ -79,13 +70,11 @@ const CreateBMC = () => {
   return (
     <div className="create-bmc-page page">
       <div className="content-wrapper">
-        <div className="create-bmc-header">
-          <h1>Lag en BMC</h1>
-          <p>
-            Velg kategori for og legg til elementer. Klikk på elementene for å
-            fjerne de igjen.
-          </p>
-        </div>
+        <PageTitle
+          title="Lag en BMC"
+          description="Velg kategori og legg til elementer. Klikk på elementene for å fjerne de igjen."
+        />
+
         {/* Add new input section */}
         <div className="bmc-input-section">
           <select
@@ -116,7 +105,7 @@ const CreateBMC = () => {
           <CustomButton
             text="Add"
             size="medium"
-            flex={false}
+            flex={window.innerWidth < 768 ? true : false}
             onClick={handleNewItemSubmit}
           />
         </div>
@@ -130,9 +119,13 @@ const CreateBMC = () => {
                 isExpanded={expandedElements.includes(element.id)}
                 onToggle={() => toggleElement(element.id)}
               >
-                <ul className="">
+                <ul>
                   {bmcItems[element.id].map((item, index) => (
-                    <li key={index}>
+                    <li
+                      key={index}
+                      className="bmc-item-interactive"
+                      onClick={() => handleRemoveItem(element.id, index)}
+                    >
                       {item}
                     </li>
                   ))}

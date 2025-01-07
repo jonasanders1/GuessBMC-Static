@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/leaderboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrophy, faMedal, faAward } from "@fortawesome/free-solid-svg-icons";
+import PageTitle from "../components/PageTitle/PageTitle";
 
 type TimeFilter = "today" | "week" | "allTime";
 export type LeaderboardEntry = {
@@ -41,8 +42,8 @@ const Leaderboard = () => {
   const getCurrentData = () => {
     const timeFilteredData = mockData[activeFilter] || [];
     if (!nameFilter) return timeFilteredData;
-    
-    return timeFilteredData.filter(entry =>
+
+    return timeFilteredData.filter((entry) =>
       entry.username.toLowerCase().includes(nameFilter.toLowerCase())
     );
   };
@@ -64,74 +65,78 @@ const Leaderboard = () => {
 
   return (
     <div className="leaderboard-page page">
-      <div className="leaderboard-header-section">
-        <h1>Toppliste</h1>
-        <p>Se hvem som er best i Guess BMC!</p>
-      </div>
-
-      <div className="leaderboard-filters">
-        <button
-          className={`filter-btn ${activeFilter === "today" ? "active" : ""}`}
-          onClick={() => setActiveFilter("today")}
-        >
-          I dag
-        </button>
-        <button
-          className={`filter-btn ${activeFilter === "week" ? "active" : ""}`}
-          onClick={() => setActiveFilter("week")}
-        >
-          Denne uken
-        </button>
-        <button
-          className={`filter-btn ${activeFilter === "allTime" ? "active" : ""}`}
-          onClick={() => setActiveFilter("allTime")}
-        >
-          Totalt
-        </button>
-        
-        <input
-          type="text"
-          placeholder="Søk etter spiller..."
-          value={nameFilter}
-          onChange={(e) => setNameFilter(e.target.value)}
-          className="name-filter-input"
+      <div className="content-wrapper">
+        <PageTitle
+          title="Leaderboard"
+          description="Se hvem som har høyest score på BMC Quiz."
         />
-      </div>
 
-      <div className="leaderboard-container">
-        {filteredData.length > 0 ? (
-          <>
-            <div className="leaderboard-table-header">
-              <span>Rank</span>
-              <span>Spiller</span>
-              <span>Poeng</span>
-              <span className="hide-mobile">Dato</span>
+        <div className="leaderboard-filters">
+          <button
+            className={`filter-btn ${activeFilter === "today" ? "active" : ""}`}
+            onClick={() => setActiveFilter("today")}
+          >
+            I dag
+          </button>
+          <button
+            className={`filter-btn ${activeFilter === "week" ? "active" : ""}`}
+            onClick={() => setActiveFilter("week")}
+          >
+            Denne uken
+          </button>
+          <button
+            className={`filter-btn ${
+              activeFilter === "allTime" ? "active" : ""
+            }`}
+            onClick={() => setActiveFilter("allTime")}
+          >
+            Totalt
+          </button>
+
+          <input
+            type="text"
+            placeholder="Søk etter spiller..."
+            value={nameFilter}
+            onChange={(e) => setNameFilter(e.target.value)}
+            className="name-filter-input"
+          />
+        </div>
+
+        <div className="leaderboard-container">
+          <div className="leaderboard-table-header">
+            <span>Rank</span>
+            <span>Spiller</span>
+            <span>Poeng</span>
+            <span className="hide-mobile">Dato</span>
+          </div>
+          {filteredData.length > 0 ? (
+            <>
+              {filteredData.map((entry, index) => (
+                <div key={index} className="leaderboard-entry">
+                  <span className="rank-column">{getRankIcon(entry.rank)}</span>
+                  <span className="player-column">{entry.username}</span>
+                  <span className="score-column">{entry.score}</span>
+                  <span className="date-column hide-mobile">{entry.date}</span>
+                </div>
+              ))}
+            </>
+          ) : (
+            <div className="no-results">
+              <p>Ingen spillere funnet med navnet "{nameFilter}"</p>
+              <p>Prøv et annet søk eller fjern filteret</p>
             </div>
-            {filteredData.map((entry, index) => (
-              <div key={index} className="leaderboard-entry">
-                <span className="rank-column">{getRankIcon(entry.rank)}</span>
-                <span className="player-column">{entry.username}</span>
-                <span className="score-column">{entry.score}</span>
-                <span className="date-column hide-mobile">{entry.date}</span>
-              </div>
-            ))}
-          </>
-        ) : (
-          <div className="no-results">
-            <p>Ingen spillere funnet med navnet "{nameFilter}"</p>
-            <p>Prøv et annet søk eller fjern filteret</p>
-          </div>
-        )}
+          )}
 
-        {/* Bottom rows for positions */}
-        <div className="leaderboard-bottom-info">
-          <div className="your-position">
-            <span>Din posisjon:</span>
-            <span>#42</span>
-          </div>
-          <div className="total-players">
-            <span>Totalt antall spillere:</span>
-            <span>156</span>
+          {/* Bottom rows for positions */}
+          <div className="leaderboard-bottom-info">
+            <div className="your-position">
+              <span>Din posisjon:</span>
+              <span>#42</span>
+            </div>
+            <div className="total-players">
+              <span>Totalt antall spillere:</span>
+              <span>156</span>
+            </div>
           </div>
         </div>
       </div>

@@ -1,14 +1,13 @@
 .game-page {
-  padding: var(--spacing-md);
-  min-height: calc(100vh - var(--navbar-height));
-  background-color: var(--neutral-white);
-  margin-top: 2rem !important;
+  background-color: var(--neutral-silver);
+  padding: var(--spacing-xl) 0;
+  margin-top: 0rem !important;
 }
 
 .game-container {
-  padding: var(--spacing-md);
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
   background-color: var(--neutral-silver);
   border-radius: var(--radius-md);
 }
@@ -62,3 +61,8 @@
   background-color: var(--shade-1);
 }
 
+@media (max-width: 768px) {
+  .game-container {
+    padding: 0 var(--spacing-md);
+  }
+}

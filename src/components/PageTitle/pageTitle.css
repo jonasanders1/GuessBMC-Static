@@ -1,0 +1,32 @@
+.page-title {
+  padding: var(--spacing-lg) 0;
+}
+
+.page-title h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: var(--neutral-black);
+}
+
+.page-title p {
+  font-size: var(--font-size-base);
+  color: var(--neutral-dark-grey);
+}
+
+@media (max-width: 768px) {
+  .page-title h1 {
+    color: var(--primary-color);
+  }
+
+  .page-title h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .page-title p {
+    font-size: var(--font-size-base);
+  }
+  .page-title h1,
+  .page-title p {
+    text-align: center;
+  }
+}

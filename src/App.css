@@ -8,7 +8,7 @@
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2.784rem;
+  --font-size-3xl: 2rem;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -110,27 +110,24 @@ button:focus {
 
 /* Default text selection color */
 ::selection {
-  background: var(--tint-4);
+  background: var(--tint-1);
   color: var(--secondary-color);
 }
 
 .page {
-  width: 100%;
-  margin-top: 50px;
+  padding: 0 1rem;
+}
+.leaderboard-page{
+  padding: 0rem;
 }
 
-.landing-page {
-  margin-top: 0;
-}
-
-/* Add these new utility classes */
-.full-width-section {
-  width: 100%;
-  padding: 2rem 1rem;
+.game-page,
+.create-bmc-page,
+.leaderboard-page {
+  min-height: calc(100vh - var(--navbar-height));
 }
 
 .content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
 }

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BMCGrid from "../components/BMCGrid/BMCGrid";
 import BMCElement from "../components/BMCElement/BMCElement";
 import BMCItem from "../components/BMCItem/BMCItem";
+import PageTitle from "../components/PageTitle/PageTitle";
 
 const Game = () => {
   const [gameState, setGameState] = useState({
@@ -54,7 +55,12 @@ const Game = () => {
 
   return (
     <div className="game-page page">
-      <div className="game-container">
+      <div className="content-wrapper">
+        <PageTitle
+          title="BMC Quiz"
+          description="Svar på spørsmålene for å teste dine kunnskaper om BMC."
+        />
+        
         <div className="score-container">
           <div className="score">Score: {gameState.score}</div>
           <div className="progress">
@@ -86,7 +92,7 @@ const Game = () => {
             className="guess-input"
           />
           <CustomButton
-            text="Submit Guess"
+            text="Submit"
             icon={<FontAwesomeIcon icon={faCheck} />}
             onClick={() => handleSubmit}
             flex={false}
