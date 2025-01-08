@@ -15,7 +15,8 @@
   border: 1px solid var(--primary-color);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-base);
-  background: transparent;
+  /* background: transparent; */
+  background-color: var(--neutral-white);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -150,13 +151,6 @@
   .hide-mobile {
     display: none;
   }
-}
-
-.name-filter-input {
-  padding: var(--spacing-sm);
-  border: 1px solid var(--neutral-grey-blue);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-base);
 }
 
 .no-results {

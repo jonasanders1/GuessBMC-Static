@@ -87,7 +87,7 @@
     top: auto;
     bottom: 0;
     padding: 0 1rem;
-    height: 60px;
+    height: var(--navbar-height);
     transition: border-radius 0.3s ease-in-out;
     z-index: 1002;
     background-color: var(--neutral-white);
@@ -132,6 +132,13 @@
     gap: 0.25rem;
     color: var(--neutral-dark-grey);
   }
+  .logout-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
   .nav-overlay {
     display: block;
     position: fixed;

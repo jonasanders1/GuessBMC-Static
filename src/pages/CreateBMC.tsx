@@ -121,11 +121,11 @@ const CreateBMC = () => {
                 isExpanded={expandedElements.includes(element.id)}
                 onToggle={() => toggleElement(element.id)}
               >
-                <ul>
+                <ul className="bmc-items-list">
                   {bmcItems[element.id].map((item, index) => (
                     <li
                       key={index}
-                      className="bmc-item-interactive"
+                      className="bmc-item bmc-item-interactive"
                       onClick={() => handleRemoveItem(element.id, index)}
                     >
                       {item}

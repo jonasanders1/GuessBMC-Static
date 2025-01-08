@@ -1,6 +1,6 @@
 /* CSS Variables - Colors */
 :root {
-  --navbar-height: 60px;
+  --navbar-height: 65px;
   /* Typography */
   --font-family: "Montserrat", serif;
   --font-size-sm: 0.875rem;
@@ -117,17 +117,23 @@ button:focus {
 .page {
   padding: 0 1rem;
 }
-.leaderboard-page{
-  padding: 0rem;
-}
 
 .game-page,
 .create-bmc-page,
 .leaderboard-page {
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh);
 }
 
 .content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--neutral-grey-blue);
+  background-color: var(--neutral-white);
+  color: var(--neutral-dark-grey);
+  font-size: var(--font-size-base);
 }

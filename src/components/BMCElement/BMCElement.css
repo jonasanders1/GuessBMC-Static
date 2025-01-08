@@ -38,11 +38,15 @@
       transform 0.15s ease, padding 0.15s ease;
     padding: 0 var(--spacing-md);
   }
+  .bmc-element{
+    padding: var(--spacing-sm);
+
+  }
 
   .bmc-element.expanded .bmc-content {
     max-height: 500px;
     opacity: 1;
     transform: translateY(0);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm) 0rem;
   }
 }

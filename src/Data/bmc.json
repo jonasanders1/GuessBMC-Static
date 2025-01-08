@@ -1,38 +1,14 @@
 {
   "bmc": {
-    "channels": [
-      "battle.net",
-      "Retail stores"
-    ],
-    "cost_structure": [
-      "Game development",
-      "Server maintenance"
-    ],
-    "customer_relationships": [
-      "battle.net"
-    ],
-    "customer_segments": [
-      "Gamers"
-    ],
-    "key_activities": [
-      "Content and game development"
-    ],
-    "key_partners": [
-      "Data centers",
-      "ISP",
-      "Retail stores"
-    ],
-    "key_resources": [
-      "Game developers",
-      "Game infrastructure"
-    ],
-    "revenue_streams": [
-      "Monthly subscriptions",
-      "Game purchase"
-    ],
-    "value_proposition": [
-      "Online multiplayer game"
-    ]
+    "channels": ["battle.net", "Retail stores"],
+    "cost_structure": ["Game development", "Server maintenance"],
+    "customer_relationships": ["battle.net"],
+    "customer_segments": ["Gamers"],
+    "key_activities": ["Content and game development"],
+    "key_partners": ["Data centers", "ISP", "Retail stores"],
+    "key_resources": ["Game developers", "Game infrastructure"],
+    "revenue_streams": ["Monthly subscriptions", "Game purchase"],
+    "value_proposition": ["Online multiplayer game"]
   },
   "company": "Blizzard"
 }

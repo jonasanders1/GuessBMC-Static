@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import bmcData from "../Data/bmc.json";
 import "../styles/game.css";
 import CustomButton from "../components/customButton/CustomButton";
@@ -8,6 +8,8 @@ import BMCGrid from "../components/BMCGrid/BMCGrid";
 import BMCElement from "../components/BMCElement/BMCElement";
 import BMCItem from "../components/BMCItem/BMCItem";
 import PageTitle from "../components/PageTitle/PageTitle";
+import { navigateAndScroll } from "../utils/navigation";
+import { useNavigate } from "react-router-dom";
 
 const Game = () => {
   const [gameState, setGameState] = useState({
@@ -15,9 +17,39 @@ const Game = () => {
     score: 0,
     currentQuestion: 1,
     totalQuestions: 10,
+    isStarted: false,
+    time: 0,
   });
 
-  // Add state for tracking which elements are expanded
+  const navigate = useNavigate();
+
+  // Timer functionality
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (gameState.isStarted) {
+      interval = setInterval(() => {
+        setGameState((prev) => ({ ...prev, time: prev.time + 1 }));
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [gameState.isStarted]);
+
+  // Format time
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, "0")}:${secs
+      .toString()
+      .padStart(2, "0")}`;
+    return "00:00";
+  };
+
+  // Start game
+  const handleStart = () => {
+    setGameState((prev) => ({ ...prev, isStarted: true }));
+  };
+
+  // Track which elements are expanded
   const [expandedElements, setExpandedElements] = useState<string[]>([]);
 
   // Toggle expansion of an element
@@ -55,16 +87,48 @@ const Game = () => {
 
   return (
     <div className="game-page page">
-      <div className="content-wrapper">
+      {!gameState.isStarted && (
+        <div className="modal-overlay">
+          <div className="start-modal">
+            <div>
+              <h2>Er du klar for å teste dine BMC kunnskaper?</h2>
+              <p>
+                Tiden vil starte når du trykker på start. Du har 10 minutter til
+                å svare på spørsmålene.
+              </p>
+            </div>
+            <div className="start-modal-buttons">
+              <CustomButton
+                text="Start Guess BMC"
+                onClick={handleStart}
+                flex={true}
+              />
+              <CustomButton
+                text="Avbryt"
+                buttonColor="var(--action-error)"
+                onClick={() => navigateAndScroll(navigate, "/")}
+                flex={true}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div
+        className={`content-wrapper game-content ${
+          gameState.isStarted ? "active" : ""
+        }`}
+      >
         <PageTitle
           title="BMC Quiz"
           description="Svar på spørsmålene for å teste dine kunnskaper om BMC."
         />
-        
+
         <div className="score-container">
           <div className="score">Score: {gameState.score}</div>
+          <div className="timer">{formatTime(gameState.time)}</div>
           <div className="progress">
-            Question {gameState.currentQuestion} of {gameState.totalQuestions}
+            {gameState.currentQuestion} of {gameState.totalQuestions}
           </div>
         </div>
 

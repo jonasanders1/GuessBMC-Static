@@ -10,16 +10,6 @@
   box-shadow: var(--shadow-2);
 }
 
-/* BMC items list styling */
-.bmc-items-list {
-  max-height: 300px;
-  overflow-y: auto;
-}
-.bmc-item-interactive:hover {
-  cursor: pointer;
-  background-color: var(--action-error) !important;
-}
-
 .bmc-input-section {
   display: flex;
   gap: var(--spacing-md);
@@ -33,17 +23,6 @@
   border: 1px solid var(--neutral-grey-blue);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-base);
-  min-width: 200px;
-  flex: 1;
-}
-
-.bmc-input-section input {
-  padding: var(--spacing-sm);
-  border: 1px solid var(--neutral-grey-blue);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-base);
-  flex: 2;
-  min-width: 200px;
 }
 
 /* Add media query for mobile devices */

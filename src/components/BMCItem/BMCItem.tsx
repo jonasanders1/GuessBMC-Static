@@ -17,9 +17,11 @@ interface BMCItemProps {
 
 const BMCItem = ({ bmcData, element }: BMCItemProps) => {
   return (
-    <ul>
+    <ul className="bmc-items-list">
       {bmcData.bmc[element.id].map((item: string, index: number) => (
-        <li key={index}>{item}</li>
+        <li key={index} className="bmc-item">
+          {item}
+        </li>
       ))}
     </ul>
   );

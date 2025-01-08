@@ -72,7 +72,7 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
             <img
               src={logo}
               alt="Guess BMC"
-              width={windowWidth < 768 ? 30 : 50}
+              width={windowWidth < 768 ? 30 : 40}
               style={{
                 display: isMenuOpen && windowWidth < 768 ? "none" : "block",
               }}
@@ -136,16 +136,18 @@ const Navbar = ({ isAuthenticated, onLogout }: NavbarProps) => {
                 {windowWidth <= 768 && <FontAwesomeIcon icon={faPlus} />}
                 Lag BMC
               </NavLink>
-              <CustomButton
-                flex={false}
-                text="Logout"
-                variant="contained"
-                size="small"
-                onClick={handleLogout}
-                buttonColor="var(--action-error)"
-                hoverColor="red"
-                icon={<FontAwesomeIcon icon={faArrowRightToBracket} />}
-              />
+              <div className="logout-btn-container">
+                <CustomButton
+                  flex={false}
+                  text="Logg ut"
+                  variant="contained"
+                  size={windowWidth <= 768 ? "medium" : "small"}
+                  onClick={handleLogout}
+                  buttonColor="var(--action-error)"
+                  hoverColor="red"
+                  icon={<FontAwesomeIcon icon={faArrowRightToBracket} />}
+                />
+              </div>
             </div>
           ) : (
             <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>

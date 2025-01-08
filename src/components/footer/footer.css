@@ -18,11 +18,12 @@
 }
 .logo {
   background-image: url("../../assets/logo.png");
+  height: 40px;
+  width: 40px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 25px;
-  aspect-ratio: 2/1;
+  padding: 0.5rem;
 }
 
 .footer-grid {
